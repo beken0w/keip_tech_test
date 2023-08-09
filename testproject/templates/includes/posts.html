@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    {% for post in posts %}
+    <div><br>==============================================================
+        <br>
+        </div>
+        <article>
+            <ul>
+            <li>Категория: {{ post.category }}</li>
+            <li>Дата публикации: {{ post.date|date:"d E Y" }}</li>
+            </ul>
+            <p>{{ post.title }}</p>
+            <p>{{ post.text }}</p>
+        </article>
+        
+    {% empty %}<p>Новостей нет</p>
+    {% endfor %}
+
+{% endblock %}
