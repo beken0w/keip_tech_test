@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="scroll_theme">
+        <div class="container">
+            <div class="scroll_row splide" id="scroll_row">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        <!--Начало кружков сверху-->
+                        {% block circles %}
+                        {% endblock %}
+                        <!--Конец кружков сверху-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="mainNews">
+        <div class="container">
+            {% block one_news %}
+            {% endblock %}
+            <div class="KPmain_block">
+                <div class="KPmain_card">
+                    <div class="KPmain_cardBlock">
+                        <!--САМЫЙ КРУПНЫЙ блок слева в середине -->
+                        {% block main_center %}
+                        {% endblock %}
+                        <!--конец САМЫЙ КРУПНЫЙ блок слева в середине -->
+
+                        <!--начало со 2го элемента цикла КРУПНЫЕ блоки слева в середине -->
+                        {% block small_center %}
+                        {% endblock %}
+                        <!--конец цикла КРУПНЫЕ блоки слева в середине -->
+                    </div>
+                    <div class="showmore">еще 20</div>
+                </div>
+                <div class="KPmain_allnews">
+                    <div class="allnews_title">Лента новостей</div>
+                    <div class="KPmain_scrollNews">
+                        <!--Начало цикла ВЕРТИКАЛЬНЫЙ В ЦЕНТРЕ -->
+                        {% block vertical_center %}
+                        {% endblock %}
+                        <!--Конец цикла ВЕРТИКАЛЬНЫЙ В ЦЕНТРЕ -->
+                    </div>
+                    <div class="allNews_btn">
+                        <a href="{% url 'news:all_news' %}">
+                            Читать все новости
+                        </a>
+                    </div>
+                </div>
+                <div class="KPmain_sidebar">
+                    <div class="kurs_block">
+                        <div class="kurs_title"> Курсы валют </div>
+                        <div class="kurs_content" id="currency"> </div>
+                    </div>
+                    <div class="popularNews">
+                        <div class="popularTitle">Читают сейчас</div>
+                        <div class="popularList">
+                            <!--Список популярных новостей СПРАВА ПО ЦЕНТРУ-->
+                            {% block side_right %}
+                            {% endblock %}
+                            <!--конец Список популярных новостей СПРАВА ПО ЦЕНТРУ-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

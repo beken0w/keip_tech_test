@@ -15,13 +15,13 @@
                 <div class="footerBody_item">
                     <div class="footerBody_itemTitle">Категории</div>
                     <ul class="footerBody_nav tagFoot">
-                        <li><a href="/category/shou-biz/"><span>Шоу Биз</span></a></li>
-                        <li><a href="/category/proisshestviia/"><span>Происшествия</span></a></li>
-                        <li><a href="/category/novosti-sporta-kazakhstana/"><span>Спорт</span></a></li>
-                        <li><a href="/category/politika/"><span>Политика</span></a></li>
-                        <li><a href="/category/ekonomika/"><span>Экономика</span></a></li>
-                        <li><a href="/category/obshchestvo/"><span>Общество</span></a></li>
-                        <li><a href="/category/v-mire/"><span>В мире</span></a></li>
+                        <li> <a href="{% url 'news:category' 'showbuss' %}"><span> Шоу-Биз </span></a> </li>
+                        <li> <a href="{% url 'news:category' 'accidents' %}"><span> Происшествия </span></a> </li>
+                        <li> <a href="{% url 'news:category' 'sport' %}"><span> Спорт </span></a> </li>
+                        <li> <a href="{% url 'news:category' 'politics' %}"><span> Политика </span></a> </li>
+                        <li> <a href="{% url 'news:category' 'economics' %}"><span> Экономика </span></a> </li>
+                        <li> <a href="{% url 'news:category' 'society' %}"><span> Общество </span></a> </li>
+                        <li> <a href="{% url 'news:category' 'world' %}"><span> В мире </span></a> </li>
                     </ul>
                 </div>
                 <div class="footerBody_item">
