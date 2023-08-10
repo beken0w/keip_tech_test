@@ -1,7 +1,6 @@
 {% extends 'main_page.html' %}
 
 
-
 {% block circles %}
     <div class="scroll_item splide__slide">
         {% for circle in circles %}
@@ -112,4 +111,129 @@
             </div>
         </a>
     {% endfor %}
+{% endblock %}
+
+{% block horizontal_demo %}
+    <section class="KPmain_category">
+        <div class="container">
+            <div class="section_header">
+                <div class="cat_title">
+                    <div class="title">Шоу-биз</div>
+                    <a href="{% url 'news:category' 'showbuss' %}">Посмотреть всё</a>
+                </div>
+            </div>
+            <div class="KPmain_categoryBlock">
+                {% for news in horizontal_demo %}
+                    <div class="KPmain_item">
+                        <a href="{% url 'news:news_detail' news.pk %}">
+                            <div class="KPmainCard-img">
+                                {% if news.image %}
+                                    <picture>
+                                        <source media="(max-width: 699px)"
+                                        data-srcset={{ news.image.url }} class="lazy">
+                                        <source media="(min-width: 700px)"
+                                        data-srcset={{ news.image.url }} class="lazy">
+                                        <img data-src="{{ news.image.url }}" alt="My Image" class="lazy">
+                                    </picture>
+                                {% endif %}
+                            </div>
+                            <div class="info">
+                                <div class="category">{{ news.get_category_display }}</div>
+                                <div class="date">{{ news.date|date:"H:i" }}</div>
+                                <div class="label">
+                                    <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.5 1C0.5 0.723858 0.723857 0.5 1 0.5H15C15.2761 0.5 15.5 0.723857 15.5 1V17C15.5 17.412 15.0296 17.6472 14.7 17.4L8.9 13.05C8.36667 12.65 7.63333 12.65 7.1 13.05L1.3 17.4C0.970382 17.6472 0.5 17.412 0.5 17V1Z"
+                                            stroke="#828282" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="KPmainCard-content">
+                                <div class="title">{{ news.title }}</div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="{% url 'news:category' 'showbuss' %}" class="show_all">Смотреть всё</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block horizontal_plus %}
+    <section class="KPmain_categoryPlus">
+        <div class="container">
+            <div class="section_header">
+                <div class="cat_title">
+                    <div class="title">В мире</div>
+                    <a href="{% url 'news:category' 'world' %}">СМ.всё</a>
+                </div>
+            </div>
+            <div class="categoryPlus_block">
+                <div class="categoryPlus_left">
+                    <div class="KPmain_item">
+                        <a href="#">
+                            <div class="KPmainCard-img">
+                                <picture>
+                                    <source media="(max-width: 699px)"
+                                        data-srcset={{ horizontal_left.image.url }} class="lazy">
+                                    <source media="(min-width: 700px)"
+                                        data-srcset={{ horizontal_left.image.url }} class="lazy">
+                                    <img data-src="{{ horizontal_left.image.url }}" alt="My Image"
+                                        class="lazy">
+                                </picture>
+                            </div>
+                            <div class="KPmainCard-content">
+                                <div class="info">
+                                    <div class="category">{{horizontal_left.get_category_display }}</div>
+                                    <div class="date">{{ news.date|date:"H:i" }}</div>
+                                </div>
+                                <div class="title">{{ horizontal_left.title }}</div>
+                                <div class="desc">{{ horizontal_left.text }}</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="categoryPlus_right">
+                    <!--цикл со 2го-->
+                    {% for news in horizontal_right %}
+                    <div class="KPmain_item">
+                        <a href="#">
+                            <div class="KPmainCard-img">
+                                <picture>
+                                    <source media="(max-width: 699px)"
+                                        data-srcset={{ news.image.url }} class="lazy">
+                                    <source media="(min-width: 700px)"
+                                        data-srcset={{ news.image.url }} class="lazy">
+                                    <img data-src={{ news.image.url }} alt="My Image"
+                                        class="lazy">
+                                </picture>
+                            </div>
+                            <div class="info">
+                                <div class="category">{{ news.get_category_display }}</div>
+                                <div class="date">{{ news.date|date:"H:i" }}</div>
+                                <div class="label">
+                                    <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.5 1C0.5 0.723858 0.723857 0.5 1 0.5H15C15.2761 0.5 15.5 0.723857 15.5 1V17C15.5 17.412 15.0296 17.6472 14.7 17.4L8.9 13.05C8.36667 12.65 7.63333 12.65 7.1 13.05L1.3 17.4C0.970382 17.6472 0.5 17.412 0.5 17V1Z"
+                                            stroke="#828282" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="KPmainCard-content">
+                                <div class="title">{{ news.title }}</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    <!--конец цикла со 2го-->
+                </div>
+            </div>
+            <a href="{% url 'news:category' 'world' %}" class="show_all">
+                Смотреть всё
+            </a>
+        </div>
+    </section>
 {% endblock %}
