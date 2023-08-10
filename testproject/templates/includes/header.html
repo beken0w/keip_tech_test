@@ -40,13 +40,13 @@
     <div class="headerWrapMob" id="headerWrapMob">
         <div class="container">
             <ul class="header_nav">
-                <li> <a href="/news/showbuss/"> Шоу-Биз </a> </li>
-                <li> <a href="/news/accidents/"> Происшествия </a> </li>
-                <li> <a href="/news/sport/"> Спорт </a> </li>
-                <li> <a href="/news/politics/"> Политика </a> </li>
-                <li> <a href="/news/economics/"> Экономика </a> </li>
-                <li> <a href="/news/society/"> Общество </a> </li>
-                <li> <a href="/news/world/"> В мире </a> </li>
+                <li> <a href="{% url 'news:category' 'showbuss' %}"> Шоу-Биз </a> </li>
+                <li> <a href="{% url 'news:category' 'accidents' %}"> Происшествия </a> </li>
+                <li> <a href="{% url 'news:category' 'sport' %}"> Спорт </a> </li>
+                <li> <a href="{% url 'news:category' 'politics' %}"> Политика </a> </li>
+                <li> <a href="{% url 'news:category' 'economics' %}"> Экономика </a> </li>
+                <li> <a href="{% url 'news:category' 'society' %}"> Общество </a> </li>
+                <li> <a href="{% url 'news:category' 'world' %}"> В мире </a> </li>
             </ul>
         </div>
     </div>
