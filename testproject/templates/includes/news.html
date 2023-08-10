@@ -173,7 +173,7 @@
             <div class="categoryPlus_block">
                 <div class="categoryPlus_left">
                     <div class="KPmain_item">
-                        <a href="#">
+                        <a href="{% url 'news:news_detail' horizontal_left.pk %}">
                             <div class="KPmainCard-img">
                                 <picture>
                                     <source media="(max-width: 699px)"
@@ -199,7 +199,7 @@
                     <!--цикл со 2го-->
                     {% for news in horizontal_right %}
                     <div class="KPmain_item">
-                        <a href="#">
+                        <a href="{% url 'news:news_detail' news.pk %}">
                             <div class="KPmainCard-img">
                                 <picture>
                                     <source media="(max-width: 699px)"
