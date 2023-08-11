@@ -3,51 +3,56 @@
 
 {% block circles %}
     <div class="scroll_item splide__slide">
-        {% for circle in circles %}
-            <a href="{% url 'news:news_detail' circle.pk %}">
-                {% if circle.image %}
-                    <picture>
-                        <source media="(max-width: 699px)"
-                            data-srcset={{ circle.image.url }} class="lazy">
-                        <source media="(min-width: 700px)"
-                            data-srcset={{ circle.image.url }} class="lazy">
-                        <img data-src={{ circle.image.url }} alt="My Image"
-                            class="scroll_img lazy">
-                    </picture>
-                {% endif %}
-                <div class="scroll_content">
-                    <div class="scroll_title">{{circle.title}}</div>
-                    <div class="scroll_desc">{{circle.text}}</div>
-                </div>
-            </a>
-        {% endfor %}
+        {% if has_news %}
+            {% for circle in circles %}
+                <a href="{% url 'news:news_detail' circle.pk %}">
+                    {% if circle.image %}
+                        <picture>
+                            <source media="(max-width: 699px)"
+                                data-srcset={{ circle.image.url }} class="lazy">
+                            <source media="(min-width: 700px)"
+                                data-srcset={{ circle.image.url }} class="lazy">
+                            <img data-src={{ circle.image.url }} alt="My Image"
+                                class="scroll_img lazy">
+                        </picture>
+                    {% endif %}
+                    <div class="scroll_content">
+                        <div class="scroll_title">{{circle.title}}</div>
+                        <div class="scroll_desc">{{circle.text}}</div>
+                    </div>
+                </a>
+                {% empty %}<p>Данных для цикла не найдено</p>
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
 
 {% block main_center%}
     <div class="KPmain_itemMain">
-        <a href="{% url 'news:news_detail' big_main_news.pk %}">
-            <div class="KPmainCard-img">
-                {% if big_main_news.image %}
-                    <div class="KPmainCard-img">
-                        <picture>
-                            <source media="(max-width: 699px)"
-                                data-srcset={{ big_main_news.image.url }} class="lazy">
-                            <source media="(min-width: 700px)"
-                                data-srcset={{ big_main_news.image.url }} class="lazy">
-                            <img data-src={{ news.image.url }} alt="My Image"
-                                class="scroll_img lazy">
-                        </picture>
-                    </div>
-                {% endif %}
-            </div>
-            <div class="KPmainCard-content">
-                <div class="title">{{big_main_news.title}}</div>
-                <div class="info">
-                    <div class="date">{{big_main_news.date|date:"H:i" }}</div>
+        {% if has_news %}
+            <a href="{% url 'news:news_detail' big_main_news.pk %}">
+                <div class="KPmainCard-img">
+                    {% if big_main_news.image %}
+                        <div class="KPmainCard-img">
+                            <picture>
+                                <source media="(max-width: 699px)"
+                                    data-srcset={{ big_main_news.image.url }} class="lazy">
+                                <source media="(min-width: 700px)"
+                                    data-srcset={{ big_main_news.image.url }} class="lazy">
+                                <img data-src={{ news.image.url }} alt="My Image"
+                                    class="scroll_img lazy">
+                            </picture>
+                        </div>
+                    {% endif %}
                 </div>
-            </div>
-        </a>
+                <div class="KPmainCard-content">
+                    <div class="title">{{big_main_news.title}}</div>
+                    <div class="info">
+                        <div class="date">{{big_main_news.date|date:"H:i" }}</div>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
     </div>
 {% endblock %}
 
@@ -110,6 +115,7 @@
                 <div class="title">{{news.title}}</div>
             </div>
         </a>
+        {% empty %}<p>Данных для цикла не найдено</p>
     {% endfor %}
 {% endblock %}
 
@@ -154,6 +160,7 @@
                             </div>
                         </a>
                     </div>
+                    {% empty %}<p>Данных для цикла не найдено</p>
                 {% endfor %}
             </div>
             <a href="{% url 'news:category' 'showbuss' %}" class="show_all">Смотреть всё</a>
@@ -173,6 +180,7 @@
             <div class="categoryPlus_block">
                 <div class="categoryPlus_left">
                     <div class="KPmain_item">
+                        {% if has_news %}
                         <a href="{% url 'news:news_detail' horizontal_left.pk %}">
                             {% if horizontal_left.image %}
                                 <div class="KPmainCard-img">
@@ -195,6 +203,7 @@
                                 <div class="desc">{{ horizontal_left.text }}</div>
                             </div>
                         </a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="categoryPlus_right">
@@ -231,6 +240,7 @@
                             </div>
                         </a>
                     </div>
+                    {% empty %}<p>Данных для цикла не найдено</p>
                     {% endfor %}
                     <!--конец цикла со 2го-->
                 </div>
