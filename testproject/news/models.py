@@ -1,6 +1,5 @@
 from datetime import datetime as dt
 from django.db import models
-from django.urls import reverse
 
 
 CHOICES = (
@@ -25,6 +24,9 @@ class News(models.Model):
         upload_to='img/',
         blank=True
     )
+
+    def __str__(self):
+        return self.title[:15]
 
     class Meta:
         ordering = ['-id']
