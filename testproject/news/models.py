@@ -22,7 +22,7 @@ class News(models.Model):
     image = models.ImageField(
         'Картинка',
         help_text='Выберите директорию изображения',
-        upload_to='media/img/',
+        upload_to='img/',
         blank=True
     )
 

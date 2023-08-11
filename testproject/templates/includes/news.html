@@ -174,16 +174,18 @@
                 <div class="categoryPlus_left">
                     <div class="KPmain_item">
                         <a href="{% url 'news:news_detail' horizontal_left.pk %}">
-                            <div class="KPmainCard-img">
-                                <picture>
-                                    <source media="(max-width: 699px)"
-                                        data-srcset={{ horizontal_left.image.url }} class="lazy">
-                                    <source media="(min-width: 700px)"
-                                        data-srcset={{ horizontal_left.image.url }} class="lazy">
-                                    <img data-src="{{ horizontal_left.image.url }}" alt="My Image"
-                                        class="lazy">
-                                </picture>
-                            </div>
+                            {% if horizontal_left.image %}
+                                <div class="KPmainCard-img">
+                                    <picture>
+                                        <source media="(max-width: 699px)"
+                                            data-srcset={{ horizontal_left.image.url }} class="lazy">
+                                        <source media="(min-width: 700px)"
+                                            data-srcset={{ horizontal_left.image.url }} class="lazy">
+                                        <img data-src="{{ horizontal_left.image.url }}" alt="My Image"
+                                            class="lazy">
+                                    </picture>
+                                </div>
+                            {% endif %}
                             <div class="KPmainCard-content">
                                 <div class="info">
                                     <div class="category">{{horizontal_left.get_category_display }}</div>
@@ -200,16 +202,18 @@
                     {% for news in horizontal_right %}
                     <div class="KPmain_item">
                         <a href="{% url 'news:news_detail' news.pk %}">
-                            <div class="KPmainCard-img">
-                                <picture>
-                                    <source media="(max-width: 699px)"
-                                        data-srcset={{ news.image.url }} class="lazy">
-                                    <source media="(min-width: 700px)"
-                                        data-srcset={{ news.image.url }} class="lazy">
-                                    <img data-src={{ news.image.url }} alt="My Image"
-                                        class="lazy">
-                                </picture>
-                            </div>
+                            {% if horizontal_left.image %}
+                                <div class="KPmainCard-img">
+                                    <picture>
+                                        <source media="(max-width: 699px)"
+                                            data-srcset={{ news.image.url }} class="lazy">
+                                        <source media="(min-width: 700px)"
+                                            data-srcset={{ news.image.url }} class="lazy">
+                                        <img data-src={{ news.image.url }} alt="My Image"
+                                            class="lazy">
+                                    </picture>
+                                </div>
+                            {% endif %}
                             <div class="info">
                                 <div class="category">{{ news.get_category_display }}</div>
                                 <div class="date">{{ news.date|date:"H:i" }}</div>
