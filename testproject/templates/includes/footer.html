@@ -27,10 +27,10 @@
                 <div class="footerBody_item">
                     <div class="footerBody_itemTitle">Категории</div>
                     <ul class="footerBody_catNav">
-                        <li> <a href="/about">О нас</a> </li>
-                        <li> <a href="/price">Размещение рекламы</a> </li>
-                        <li> <a href="/rule">Правила использования<br>материалов</a> </li>
-                        <li> <a href="/conf">Политика<br>конфиденциальности</a> </li>
+                        <li> <a href="{% url 'news:info' 'about' %}"> О нас </a> </li>
+                        <li> <a href="{% url 'news:info' 'price' %}"> Размещение рекламы </a> </li>
+                        <li> <a href="{% url 'news:info' 'rule' %}"> Правила использования <br> материалов </a> </li>
+                        <li> <a href="{% url 'news:info' 'conf' %}"> Политика<br>конфиденциальности </a> </li>
                     </ul>
                 </div>
                 <div class="footerBody_item">
@@ -152,10 +152,10 @@
                 <div class="footerBodyMob_bottom">
                     <div class="footerBodyMob_left">
                         <ul>
-                            <li> <a href="/about"> О нас </a> </li>
-                            <li> <a href="/price"> Размещение рекламы </a> </li>
-                            <li> <a href="/rule"> Правила использования <br> материалов </a> </li>
-                            <li> <a href="/conf"> Политика<br>конфиденциальности </a> </li>
+                            <li> <a href="{% url 'news:info' 'about' %}"> О нас </a> </li>
+                            <li> <a href="{% url 'news:info' 'price' %}"> Размещение рекламы </a> </li>
+                            <li> <a href="{% url 'news:info' 'rule' %}"> Правила использования <br> материалов </a> </li>
+                            <li> <a href="{% url 'news:info' 'conf' %}"> Политика<br>конфиденциальности </a> </li>
                         </ul>
                     </div>
                     <div class="footerBodyMob_right">

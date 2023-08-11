@@ -9,5 +9,5 @@ class NewsAdmin(admin.ModelAdmin):
     list_display = ('category', 'date', 'title', 'text')
     list_editable = ('date', 'title', 'text')
     search_fields = ('category', 'date', 'title', 'text')
-    list_filter = ('category', 'date', 'title', 'text')
+    list_filter = ('category', 'date', 'title')
     empty_value_display = EMPTY_DATA
